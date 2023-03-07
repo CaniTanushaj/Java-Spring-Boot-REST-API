@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/movie")
 public class MovieController {
     @Autowired
     public MovieService service;
@@ -25,12 +25,17 @@ public class MovieController {
         return service.findAllMovies();
     }
 
+
+    @GetMapping("/dates/{date}")
+    public List<Movie> findMovieByReleaseDate(@PathVariable int releaseDate){
+        return service.getMovieByReleaseDate(releaseDate);
+    }
+
     @GetMapping("/{movieId}")
     public Movie getMovie(@PathVariable String movieId){
         return service.getMovieByMovieId(movieId);
     }
 
-    //OVO NIJE TEST
     @PutMapping
     public Movie modifyMovie(@RequestBody Movie movie){
         return service.updateMovie(movie);

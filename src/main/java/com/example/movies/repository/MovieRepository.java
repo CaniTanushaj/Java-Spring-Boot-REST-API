@@ -7,5 +7,5 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface MovieRepository extends MongoRepository<Movie,String> {
-    List<Movie> findByDate(LocalDate date);
+    List<Movie> findByDate(int date);
 }

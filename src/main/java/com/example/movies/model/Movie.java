@@ -17,6 +17,6 @@ public class Movie  {
     @Id
     private String id;
     private String title;
-    private String[] genres;
-    private LocalDate date;
+    private String genres;
+    private int date;
 }

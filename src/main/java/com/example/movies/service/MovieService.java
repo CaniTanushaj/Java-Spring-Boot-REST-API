@@ -4,6 +4,7 @@ import com.example.movies.model.Movie;
 import com.example.movies.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,7 +13,6 @@ import java.util.UUID;
 @Service
 public class MovieService {
 
-    //CRUD
     //READ
     @Autowired
     public MovieRepository repository;
@@ -30,8 +30,8 @@ public class MovieService {
         return repository.findById(movieId).get();
     }
 
-    public List<Movie> getMovieByReleaseDate(LocalDate date){
-        return repository.findByDate(date);
+    public List<Movie> getMovieByReleaseDate(int releaseDate){
+        return repository.findByDate(releaseDate);
     }
 
     //UPDATE
